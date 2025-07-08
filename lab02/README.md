@@ -2,4 +2,4 @@
 
 ## Flowchart
 
-![Lab02 Flowchart](./Lab02-Flowchart.png)
+![Lab02 Flowchart](Lab02-Flowchart.png)
