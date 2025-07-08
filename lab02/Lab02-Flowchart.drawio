@@ -312,7 +312,7 @@
             <mxPoint x="170" y="1770" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="G3lfqqP3yeIjZQuezH1j-0" value="เอาสินค้าให้" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="mvioNwK95yMqdUQ73LqQ-36">
+        <mxCell id="G3lfqqP3yeIjZQuezH1j-0" value="ส่งสินค้าในรายการออกไป" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="mvioNwK95yMqdUQ73LqQ-36">
           <mxGeometry x="815.99" y="1110" width="147.9" height="55.2" as="geometry" />
         </mxCell>
         <mxCell id="qCDnmtnE7eTBcoCC0Jwe-9" value="&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Sarabun&quot; face=&quot;Sarabun&quot;&gt;โจทย์ปัญหา&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
