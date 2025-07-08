@@ -179,7 +179,7 @@
         <mxCell id="ESNEgxvBpzHI3Ey90jB8-1" value="รับจำนวนเงินที่เติม" style="rounded=1;whiteSpace=wrap;html=1;" parent="mvioNwK95yMqdUQ73LqQ-36" vertex="1">
           <mxGeometry x="615.9447983014863" y="264.4064927346135" width="170.06369426751596" height="55.20177074580371" as="geometry" />
         </mxCell>
-        <mxCell id="ESNEgxvBpzHI3Ey90jB8-3" value="แสดงเมนูสินค้าและยอดเงิน\nรับชื่อสินค้า" style="rounded=1;whiteSpace=wrap;html=1;" parent="mvioNwK95yMqdUQ73LqQ-36" vertex="1">
+        <mxCell id="ESNEgxvBpzHI3Ey90jB8-3" value="แสดงเมนูสินค้าและยอดเงิน\nรับชื่อสินค้าที่จะซื้อ" style="rounded=1;whiteSpace=wrap;html=1;" parent="mvioNwK95yMqdUQ73LqQ-36" vertex="1">
           <mxGeometry x="795.4564755838644" y="393.21062447482217" width="207.85562632696397" height="55.20177074580371" as="geometry" />
         </mxCell>
         <mxCell id="ESNEgxvBpzHI3Ey90jB8-4" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;" parent="mvioNwK95yMqdUQ73LqQ-36" source="ESNEgxvBpzHI3Ey90jB8-1" target="ESNEgxvBpzHI3Ey90jB8-3" edge="1">
