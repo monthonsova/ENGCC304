@@ -2,6 +2,7 @@
     "tasks": [
         {
             "type": "cppbuild",
+<<<<<<< HEAD
             "label": "C/C++: cl.exe build active file",
             "command": "cl.exe",
             "args": [
@@ -27,13 +28,23 @@
             "args": [
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
+=======
+            "label": "C/C++: g++.exe build active file",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+>>>>>>> 1218fecc3453ece46f37942e7a873c555600bf50
                 "-g",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
+<<<<<<< HEAD
                 "cwd": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\Llvm\\x64\\bin"
+=======
+                "cwd": "${fileDirname}"
+>>>>>>> 1218fecc3453ece46f37942e7a873c555600bf50
             },
             "problemMatcher": [
                 "$gcc"
