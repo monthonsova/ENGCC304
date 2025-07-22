@@ -52,3 +52,30 @@ Salary = U$ 374000.00
 | ประเมินค่า | โปรแกรมเสร็จสมบูรณ์ระยะเวลาที่กำหนด | 1 pts |
 | สร้างสรรค์ | แก้ไขสถานการณ์ของโจทย์ | 1 pts |
 ||<p style='text-align: right !important;'>**รวม**</p>|**6 pts**|
+
+## ตัวอย่างโค้ด main.c
+```c
+#include <stdio.h>
+
+int main() {
+    char emp_id[11];
+    int hours;
+    double rate, salary;
+
+    printf("Input the Employees ID(Max. 10 chars): \n");
+    scanf("%10s", emp_id);
+
+    printf("Input the working hrs: \n");
+    scanf("%d", &hours);
+
+    printf("Salary amount/hr: \n");
+    scanf("%lf", &rate);
+
+    salary = hours * rate;
+
+    printf("Employees ID = %s\n", emp_id);
+    printf("Salary = U$ %.2lf\n", salary);
+
+    return 0;
+}
+```

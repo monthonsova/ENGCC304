@@ -41,3 +41,31 @@ Series: 8 6 4 2 0
 | ประเมินค่า | โปรแกรมเสร็จสมบูรณ์ระยะเวลาที่กำหนด | 1 pts |
 | สร้างสรรค์ | แก้ไขสถานการณ์ของโจทย์ | 1 pts |
 ||<p style='text-align: right !important;'>**รวม**</p>|**6 pts**|
+
+## ตัวอย่างโค้ด main.c
+```c
+#include <stdio.h>
+
+int main() {
+    int N;
+    printf("Enter value:\n");
+    if (scanf("%d", &N) != 1) {
+        printf("Invalid input.\n");
+        return 0;
+    }
+    printf("Series: ");
+    if (N % 2 == 1) {
+        for (int i = 1; i <= N; i += 2) {
+            printf("%d", i);
+            if (i + 2 <= N) printf(" ");
+        }
+    } else {
+        for (int i = N; i >= 0; i -= 2) {
+            printf("%d", i);
+            if (i - 2 >= 0) printf(" ");
+        }
+    }
+    printf("\n");
+    return 0;
+}
+```
