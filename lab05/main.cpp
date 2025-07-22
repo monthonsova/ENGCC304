@@ -2,9 +2,8 @@
 
 int main() {
     int score;
-    char ch;
     printf("enter score :\n");
-    if (scanf("%d%c", &score, &ch) != 2 || ch != '\n') {
+    if (scanf("%d", &score) != 1) {
         printf("please enter number only.\n");
         return 0;
     }
