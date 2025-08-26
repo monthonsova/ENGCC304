@@ -1,7 +1,0 @@
-{
-    "C_Cpp.default.compilerPath": "c:/msys64/ucrt64/bin/c++.exe",
-    "terminal.integrated.env.windows": {
-        "LANG": "th_TH.UTF-8",
-        "LC_ALL": "th_TH.UTF-8"
-    }
-}

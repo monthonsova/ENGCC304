@@ -3,23 +3,16 @@
 
 //แก้บัคมีข้อมูลตกค้างใน scanf
 void clearInputBuffer( void ) {
-    int c = getchar() ;
-    while ( c != '\n' && c != -1 ) {
+    int c ;
+    while ( ( c = getchar() ) != '\n' && c != -1 ) {
     }//end while
 }//end function clearInputBuffer
 
-void showMenu( void ) {
+void showMenu( char items[ 7 ][ 50 ] , int prices[ 7 ] , int stock[ 7 ] ) {
     printf( "\n=========== ตู้กดน้ำ & ขนม ตะพาบลอย ===========\n" ) ;
-    printf( "\nประเภทน้ำ\n" ) ;
-    printf( " 1) โค้ก - 10 บาท\n" ) ;
-    printf( " 2) น้ำเขียว - 12 บาท\n" ) ;
-    printf( " 3) อเมริกาโน่ - 30 บาท\n" ) ;
-    printf( " 4) ลาเต้ หวานเจี๊ยบ - 35 บาท\n" ) ;
-
-    printf( "\nขนม\n" ) ;
-    printf( " 5) เมล็ดทานตะวัน - 13 บาท\n" ) ;
-    printf( " 6) ถั่วแปบ - 20 บาท\n" ) ;
-    printf( " 7) จิ้นส้มหมก - 15 บาท\n" ) ;
+    for ( int i = 0 ; i < 7 ; i++ ) {
+        printf( " %d) %s - %d บาท (เหลือ %d ชิ้น)\n" , i + 1 , items[ i ] , prices[ i ] , stock[ i ] ) ;
+    }//end for
     printf( "===============================================\n" ) ;
 }//end function showMenu
 
@@ -85,8 +78,7 @@ void payment( int total ) {
         }//end for
     }//end if
 
-    printf( "===============================================\n" ) ;
-    printf( "ขอบคุณที่ใช้บริการ ตู้ตะพาบลอย\n" ) ;
+
 }//end function payment
 
 int main( void ) {
@@ -95,10 +87,19 @@ int main( void ) {
     int total = 0 ;
     int count = 0 ;
 
-    char items[ 100 ][ 50 ] ;
-    int prices[ 100 ] ;
+    char orderItems[ 100 ][ 50 ] ;
+    int orderPrices[ 100 ] ;
 
-    showMenu() ;
+    char items[ 7 ][ 50 ] = {
+        "โค้ก" , "น้ำเขียว" , "อเมริกาโน่" ,
+        "ลาเต้ หวานเจี๊ยบ" , "เมล็ดทานตะวัน" ,
+        "ถั่วแปบ" , "จิ้นส้มหมก"
+    } ;
+
+    int prices[7] = { 10 , 12 , 30 , 35 , 13 , 20 , 15 } ;
+    int stock[7]  = { 10 , 10 , 10 , 10 , 10 , 10 , 10 } ;
+
+    showMenu( items , prices , stock ) ;
 
     while ( more == 'Y' || more == 'y' ) {
         printf( "\nเลือกสินค้าตามหมายเลข: " ) ;
@@ -114,48 +115,16 @@ int main( void ) {
             continue ;
         }//end if
 
-        if ( choice == 1 ) {
-            total += 10 ;
-            strcpy( items[ count ] , "โค้ก" ) ;
-            prices[ count ] = 10 ;
-            count++ ;
+        if ( stock[ choice - 1 ] <= 0 ) {
+            printf( "ขออภัย %s หมดแล้ว!\n" , items[ choice - 1 ] ) ;
+            continue ;
         }//end if
-        else if ( choice == 2 ) {
-            total += 12 ;
-            strcpy( items[ count ] , "น้ำเขียว" ) ;
-            prices[ count ] = 12 ;
-            count++ ;
-        }//end else if
-        else if ( choice == 3 ) {
-            total += 30 ;
-            strcpy( items[ count ] , "อเมริกาโน่" ) ;
-            prices[ count ] = 30 ;
-            count++ ;
-        }//end else if
-        else if ( choice == 4 ) {
-            total += 35 ;
-            strcpy( items[ count ] , "ลาเต้ หวานเจี๊ยบ" ) ;
-            prices[ count ] = 35 ;
-            count++ ;
-        }//end else if
-        else if ( choice == 5 ) {
-            total += 13 ;
-            strcpy( items[ count ] , "เมล็ดทานตะวัน" ) ;
-            prices[ count ] = 13 ;
-            count++ ;
-        }//end else if
-        else if ( choice == 6 ) {
-            total += 20 ;
-            strcpy( items[ count ] , "ถั่วแปบ" ) ;
-            prices[ count ] = 20 ;
-            count++ ;
-        }//end else if
-        else if ( choice == 7 ) {
-            total += 15 ;
-            strcpy( items[ count ] , "จิ้นส้มหมก" ) ;
-            prices[ count ] = 15 ;
-            count++ ;
-        }//end else if
+
+        total += prices[ choice - 1 ] ;
+        strcpy( orderItems[ count ] , items[ choice - 1 ] ) ;
+        orderPrices[ count ] = prices[ choice - 1 ] ;
+        stock[ choice - 1 ]-- ; // ลด stock
+        count++ ;
 
         do {
             printf( "จะเอาเพิ่มไหม? (Y/N): " ) ;
@@ -167,9 +136,9 @@ int main( void ) {
         } while ( more != 'Y' && more != 'y' && more != 'N' && more != 'n' ) ;
     }//end while
 
-    printf( "\nนี่คือรายการทั้งหมดที่คุณเลือก:\n" ) ;
+    printf( "\n=== นี่คือรายการทั้งหมดที่คุณเลือก ===\n" ) ;
     for ( int i = 0 ; i < count ; i++ ) {
-        printf( "%d) %s - %d บาท\n" , i + 1 , items[ i ] , prices[ i ] ) ;
+        printf( "%d) %s - %d บาท\n" , i + 1 , orderItems[ i ] , orderPrices[ i ] ) ;
     }//end for
     printf( "รวมทั้งหมด: %d บาท\n" , total ) ;
 
@@ -192,5 +161,12 @@ int main( void ) {
 
     payment( total ) ;
 
+    printf( "\n=== Stock ที่เหลือหลังการซื้อ ===\n" ) ;
+    for ( int i = 0 ; i < 7 ; i++ ) {
+        printf( "%s เหลือ %d ชิ้น\n" , items[ i ] , stock[ i ] ) ;
+    }//end for
+
+    printf( "===============================================\n" ) ;
+    printf( "ขอบคุณที่ใช้บริการ ตู้ตะพาบลอย\n" ) ;
     return 0 ;
 }//end function main
