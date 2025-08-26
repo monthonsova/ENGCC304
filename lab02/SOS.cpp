@@ -112,50 +112,42 @@ int main(void) {
             continue;
         }
 
-        switch (choice) {
-        case 1: 
-            total += 10; 
-            strcpy(items[count], "โค้ก"); //ให้สินค้าที่[สินค้าที่...] ราคา = ..
-            prices[count] = 10; 
+        if (choice == 1) {
+            total += 10;
+            strcpy(items[count], "โค้ก");
+            prices[count] = 10;
             count++;
-            break;
-        case 2: 
-            total += 12; 
-            strcpy(items[count], "น้ำเขียว"); 
-            prices[count] = 12; 
+        } else if (choice == 2) {
+            total += 12;
+            strcpy(items[count], "น้ำเขียว");
+            prices[count] = 12;
             count++;
-            break;
-        case 3: 
-            total += 30; 
-            strcpy(items[count], "อเมริกาโน่"); 
-            prices[count] = 30; 
+        } else if (choice == 3) {
+            total += 30;
+            strcpy(items[count], "อเมริกาโน่");
+            prices[count] = 30;
             count++;
-            break;
-        case 4: 
-            total += 35; 
-            strcpy(items[count], "ลาเต้ หวานเจี๊ยบ"); 
+        } else if (choice == 4) {
+            total += 35;
+            strcpy(items[count], "ลาเต้ หวานเจี๊ยบ");
             prices[count] = 35;
             count++;
-            break;
-        case 5: 
-            total += 13; 
-            strcpy(items[count], "เมล็ดทานตะวัน"); 
-            prices[count] = 13; 
+        } else if (choice == 5) {
+            total += 13;
+            strcpy(items[count], "เมล็ดทานตะวัน");
+            prices[count] = 13;
             count++;
-            break;
-        case 6: 
-            total += 20; 
-            strcpy(items[count], "ถั่วแปบ"); 
-            prices[count] = 20; 
+        } else if (choice == 6) {
+            total += 20;
+            strcpy(items[count], "ถั่วแปบ");
+            prices[count] = 20;
             count++;
-            break;
-        case 7: 
-            total += 15; 
-            strcpy(items[count], "จิ้นส้มหมก"); 
+        } else if (choice == 7) {
+            total += 15;
+            strcpy(items[count], "จิ้นส้มหมก");
             prices[count] = 15;
             count++;
-            break;
-        }
+        } 
 
         do {
             printf("จะเอาเพิ่มไหม? (Y/N): ");
