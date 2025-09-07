@@ -11,7 +11,6 @@ int main() {
         int j = 2 ;
         if ( i > 2 ) {
             do {
-                if ( j >= i ) break ;
                 if ( i % j == 0 ) {
                     isPrime = 0 ;
                     break ;
