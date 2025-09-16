@@ -26,8 +26,8 @@ int main( void ) {
 
         {
             int target = rand() % 100 + 1 ;
-            int score = 100 ;
-            int low = 1 , high = 100 ;
+            int score  = 100 ;
+            int low    = 1 , high = 100 ;
             int guess ;
 
             printf( "\n(Score=100)\n\n" ) ;
@@ -48,6 +48,11 @@ int main( void ) {
                 }
 
                 score -= 10 ;
+
+                if ( score <= 0 ) {
+                    printf( "\nYou lose! The winning number was %d.\n\n" , target ) ;
+                    break ;
+                }
 
                 if ( guess < low ) {
                     printf( "\nSorry, the winning number is HIGHER than %d. (Score=%d)\n\n" , low , score ) ;

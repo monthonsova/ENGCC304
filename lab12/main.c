@@ -1,25 +1,40 @@
 #include <stdio.h>
 
 struct Student {
-    char Name[50] ;
-    char ID[10] ;
+    char Name[20] ;
+    char ID[5] ;
     float ScoreSub1 ;
     float ScoreSub2 ;
     float ScoreSub3 ;
     float ScoreSub4 ;
     float ScoreSub5 ;
-} ;
-typedef struct Student S ;
+} typedef S ;
 
-const char* grade( float score ) {
-    if ( score >= 80 ) return "A" ;
-    else if ( score >= 75 ) return "B+" ;
-    else if ( score >= 70 ) return "B" ;
-    else if ( score >= 65 ) return "C+" ;
-    else if ( score >= 60 ) return "C" ;
-    else if ( score >= 55 ) return "D+" ;
-    else if ( score >= 50 ) return "D" ;
-    else return "F" ;
+void grade( float score , char result[3] ) {
+    if ( score >= 80 ) {
+        result[0] = 'A' ; result[1] = '\0' ;
+    }
+    else if ( score >= 75 ) {
+        result[0] = 'B' ; result[1] = '+' ; result[2] = '\0' ;
+    }
+    else if ( score >= 70 ) {
+        result[0] = 'B' ; result[1] = '\0' ;
+    }
+    else if ( score >= 65 ) {
+        result[0] = 'C' ; result[1] = '+' ; result[2] = '\0' ;
+    }
+    else if ( score >= 60 ) {
+        result[0] = 'C' ; result[1] = '\0' ;
+    }
+    else if ( score >= 55 ) {
+        result[0] = 'D' ; result[1] = '+' ; result[2] = '\0' ;
+    }
+    else if ( score >= 50 ) {
+        result[0] = 'D' ; result[1] = '\0' ;
+    }
+    else {
+        result[0] = 'F' ; result[1] = '\0' ;
+    }
 }
 
 int main( void ) {
@@ -47,7 +62,16 @@ int main( void ) {
     }
 
     for ( i = 0 ; i < 3 ; i++ ) {
-        float avg = ( students[i].ScoreSub1 + students[i].ScoreSub2 + students[i].ScoreSub3 + students[i].ScoreSub4 + students[i].ScoreSub5 ) / 5.0 ;
+        float avg = ( students[i].ScoreSub1 + students[i].ScoreSub2 +
+                      students[i].ScoreSub3 + students[i].ScoreSub4 +
+                      students[i].ScoreSub5 ) / 5.0 ;
+
+        char g1[3], g2[3], g3[3], g4[3], g5[3] ;
+        grade( students[i].ScoreSub1 , g1 ) ;
+        grade( students[i].ScoreSub2 , g2 ) ;
+        grade( students[i].ScoreSub3 , g3 ) ;
+        grade( students[i].ScoreSub4 , g4 ) ;
+        grade( students[i].ScoreSub5 , g5 ) ;
 
         printf( "\nStudent %d:\n" , i + 1 ) ;
         printf( "Name: %s\n" , students[i].Name ) ;
@@ -59,13 +83,7 @@ int main( void ) {
             students[i].ScoreSub4 ,
             students[i].ScoreSub5
         ) ;
-        printf( "Grades: %s %s %s %s %s\n" ,
-            grade( students[i].ScoreSub1 ) ,
-            grade( students[i].ScoreSub2 ) ,
-            grade( students[i].ScoreSub3 ) ,
-            grade( students[i].ScoreSub4 ) ,
-            grade( students[i].ScoreSub5 )
-        ) ;
+        printf( "Grades: %s %s %s %s %s\n" , g1 , g2 , g3 , g4 , g5 ) ;
         printf( "Average Scores: %.1f\n" , avg ) ;
     }
 
