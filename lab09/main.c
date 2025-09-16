@@ -35,7 +35,7 @@ int main( void ) {
         }
 
         if ( prime )
-            printf( "%2d " , n ) ;
+            printf( "%d " , n ) ;
         else
             printf( " # " ) ;
     }
