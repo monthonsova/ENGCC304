@@ -26,7 +26,7 @@ int main( void ) {
         if ( n < 2 ) {
             prime = 0 ;
         } else {
-            for ( int j = 2 ; j * j <= n ; j++ ) {
+            for ( int j = 2 ; j < n ; j++ ) {
                 if ( n % j == 0 ) {
                     prime = 0 ;
                     break ;

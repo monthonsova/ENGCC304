@@ -31,7 +31,7 @@ int main( void ) {
             int guess ;
 
             printf( "\n(Score=100)\n\n" ) ;
-
+            
             while ( 1 ) {
                 printf( "Guess the winning number (%d-%d) :\n" , low , high ) ;
 
