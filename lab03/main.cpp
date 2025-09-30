@@ -1,18 +1,26 @@
 #include <stdio.h>
+#include <math.h>
 
-int isEven( int num ) {
-    if ( num % 2 == 0 ) {
-        return 1 ;
+int isPrime( int num ) {
+    if ( num < 2 ) {
+        return 0 ;
     }//end if
-    return 0 ;
-}//end function isEven
+
+    for ( int i = 2 ; i <= sqrt( num ) ; i++ ) {
+        if ( num % i == 0 ) {
+            return 0 ;
+        }//end if
+    }//end for
+
+    return 1 ;
+}//end function isPrime
 
 int main() {
     int n ;
     printf( "Enter N : " ) ;
     scanf( "%d" , &n ) ;
 
-    int arr[n] ;
+    int arr[ n ] ;
     for ( int i = 0 ; i < n ; i++ ) {
         printf( "Enter value[%d] : " , i ) ;
         scanf( "%d" , &arr[ i ] ) ;
@@ -26,7 +34,7 @@ int main() {
 
     printf( "Array:  " ) ;
     for ( int i = 0 ; i < n ; i++ ) {
-        if ( isEven( arr[ i ] ) ) {
+        if ( isPrime( arr[ i ] ) ) {
             printf( "%2d " , arr[ i ] ) ;
         }//end if
         else {
